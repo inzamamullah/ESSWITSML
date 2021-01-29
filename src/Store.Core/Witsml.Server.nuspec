@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>PDS.WITSMLstudio.Store</id>
+    <version>$version$</version>
+    <authors>PDS Americas LLC</authors>
+    <description>PDS WITSML Server Library</description>
+    <projectUrl>https://witsml.pds.technology/docs/</projectUrl>
+    <licenseUrl>http://www.pds.group/WITSMLstudio/OpenSource/ProductLicenseAgreement</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <dependencies>
+      <group targetFramework="net45">
+        <dependency id="Fare" version="1.0.2" />
+        <dependency id="PDS.WITSMLstudio.Core" version="$version$" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/$configuration$/PDS.WITSMLstudio.Store.dll" target="lib/net45" />
+    <file src="bin/$configuration$/PDS.WITSMLstudio.Store.pdb" target="lib/net45" />
+    <file src="bin/$configuration$/PDS.WITSMLstudio.Store.xml" target="lib/net45" />
+  </files>
+</package>

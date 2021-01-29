@@ -1,0 +1,1 @@
+This is the git repository for the Energistics Transfer Protocol message serialization library for .NET.

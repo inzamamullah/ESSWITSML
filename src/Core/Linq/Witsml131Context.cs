@@ -1,0 +1,170 @@
+﻿//----------------------------------------------------------------------- 
+// PDS WITSMLstudio Core, 2018.3
+//
+// Copyright 2018 PDS Americas LLC
+// 
+// Licensed under the PDS Open Source WITSML Product License Agreement (the
+// "License"); you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//   
+//     http://www.pds.group/WITSMLstudio/OpenSource/ProductLicenseAgreement
+// 
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//-----------------------------------------------------------------------
+
+using System.Collections.Generic;
+using System.Linq;
+using System.Security;
+using Energistics.DataAccess;
+using Energistics.DataAccess.WITSML131;
+using Energistics.Etp.Common.Datatypes;
+
+namespace PDS.WITSMLstudio.Linq
+{
+    /// <summary>
+    /// Manages the context for version 131 of WITSML connections and data.
+    /// </summary>
+    /// <seealso cref="PDS.WITSMLstudio.Linq.WitsmlContext" />
+    public class Witsml131Context : WitsmlContext
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Witsml131Context"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="timeoutInMinutes">The timeout in minutes.</param>
+        public Witsml131Context(string url, double timeoutInMinutes = 1.5)
+            : base(url, timeoutInMinutes, WMLSVersion.WITSML131)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Witsml131Context"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="timeoutInMinutes">The timeout in minutes.</param>
+        public Witsml131Context(string url, string username, string password, double timeoutInMinutes = 1.5)
+            : base(url, username, password, timeoutInMinutes, WMLSVersion.WITSML131)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Witsml131Context"/> class.
+        /// </summary>
+        /// <param name="url">The URL.</param>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="timeoutInMinutes">The timeout in minutes.</param>
+        public Witsml131Context(string url, string username, SecureString password, double timeoutInMinutes = 1.5)
+            : base(url, username, password, timeoutInMinutes, WMLSVersion.WITSML131)
+        {
+        }
+
+        /// <summary>
+        /// Gets the supported get from store objects.
+        /// </summary>
+        /// <returns>The array of supported get from store objects.</returns>
+        public override string[] GetSupportedGetFromStoreObjects()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gets the wells.
+        /// </summary>
+        public IWitsmlQuery<Well> Wells => CreateQuery<Well, WellList>();
+
+        /// <summary>
+        /// Gets the wellbores.
+        /// </summary>
+        public IWitsmlQuery<Wellbore> Wellbores => CreateQuery<Wellbore, WellboreList>();
+
+        /// <summary>
+        /// Gets the rigs.
+        /// </summary>
+        public IWitsmlQuery<Rig> Rigs => CreateQuery<Rig, RigList>();
+
+        /// <summary>
+        /// Gets the logs.
+        /// </summary>
+        public IWitsmlQuery<Log> Logs => CreateQuery<Log, LogList>();
+
+        /// <summary>
+        /// Gets the trajectories.
+        /// </summary>
+        public IWitsmlQuery<Trajectory> Trajectories => CreateQuery<Trajectory, TrajectoryList>();        
+
+        /// <summary>
+        /// Gets all wells.
+        /// </summary>
+        /// <returns>The wells.</returns>
+        public override IEnumerable<IDataObject> GetAllWells()
+        {
+            return Wells
+                .With(OptionsIn.ReturnElements.Requested)
+                .Include(IncludeWitsmlQueryElements)
+                .ToList() // execute query before sorting
+                .OrderBy(x => x.Name);
+        }
+
+        /// <summary>
+        /// Gets the wellbores.
+        /// </summary>
+        /// <param name="uri">The parent URI.</param>
+        /// <returns>The wellbores.</returns>
+        public override IEnumerable<IWellObject> GetWellbores(EtpUri uri)
+        {
+            return Wellbores
+                .With(OptionsIn.ReturnElements.Requested)
+                .Include(IncludeWitsmlQueryElements)
+                .Where(x => x.UidWell == uri.ObjectId)
+                .ToList() // execute query before sorting
+                .OrderBy(x => x.Name);
+        }
+
+        /// <summary>
+        /// Formats the WITSML query.
+        /// </summary>
+        /// <param name="query">The query.</param>
+        /// <param name="optionsIn">The options in.</param>
+        protected override IWitsmlQuery FormatWitsmlQuery(IWitsmlQuery query, params OptionsIn[] optionsIn)
+        {
+            if (!optionsIn.Contains(OptionsIn.ReturnElements.IdOnly))
+            {
+                return base.FormatWitsmlQuery(query, optionsIn);
+            }
+
+            return query
+                .With(OptionsIn.ReturnElements.Requested)
+                .Include(IncludeWitsmlQueryElements);
+        }
+
+        private void IncludeWitsmlQueryElements<T>(T template)
+        {
+            var dataObject = template as IDataObject;
+            var wellObject = template as IWellObject;
+            var wellboreObject = template as IWellboreObject;
+
+            if (wellboreObject != null)
+            {
+                wellboreObject.UidWellbore = string.Empty;
+                wellboreObject.NameWellbore = string.Empty;
+            }
+            if (wellObject != null)
+            {
+                wellObject.UidWell = string.Empty;
+                wellObject.NameWell = string.Empty;
+            }
+            if (dataObject != null)
+            {
+                dataObject.Uid = string.Empty;
+                dataObject.Name = string.Empty;
+            }
+        }
+    }
+}

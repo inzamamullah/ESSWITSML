@@ -1,0 +1,1741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C050AB68-0543-4A23-870C-2D07F872484B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PDS.WITSMLstudio.Store</RootNamespace>
+    <AssemblyName>PDS.WITSMLstudio.Store.IntegrationTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Avro, Version=0.9.0.0, Culture=neutral, PublicKeyToken=b1248d7eeb9d0814, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\Apache.Avro.1.7.7.2\lib\Avro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Shouldly, Version=2.8.2.0, Culture=neutral, PublicKeyToken=6042cbcb05cbc941, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\Shouldly.2.8.2\lib\net451\Shouldly.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SuperSocket.ClientEngine, Version=0.10.0.0, Culture=neutral, PublicKeyToken=ee9af13f57f00acc, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\SuperSocket.ClientEngine.Core.0.10.0\lib\net45\SuperSocket.ClientEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SuperSocket.Common, Version=1.6.0.4, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\SuperWebSocket.0.9.0.2\lib\net40\SuperSocket.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SuperSocket.SocketBase, Version=1.6.0.4, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\SuperWebSocket.0.9.0.2\lib\net40\SuperSocket.SocketBase.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SuperSocket.SocketEngine, Version=1.6.0.4, Culture=neutral, PublicKeyToken=6c80000676988ebb, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\SuperWebSocket.0.9.0.2\lib\net40\SuperSocket.SocketEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SuperWebSocket, Version=0.9.0.0, Culture=neutral, PublicKeyToken=7ba53b9a7cef5d1c, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\SuperWebSocket.0.9.0.2\lib\net40\SuperWebSocket.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebSocket4Net, Version=0.15.2.11, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\WebSocket4Net.0.15.2\lib\net45\WebSocket4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="..\External\GlobalAssemblyInfo.cs">
+      <Link>GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="AssemblyInitializer.cs" />
+    <Compile Include="Configuration\CapServer131ProviderTests.cs" />
+    <Compile Include="Configuration\WitsmlValidator131Tests.cs" />
+    <Compile Include="Configuration\CapServer141ProviderTests.cs" />
+    <Compile Include="Configuration\WitsmlValidator141Tests.cs" />
+    <Compile Include="ContainerTests.cs" />
+    <Compile Include="Data\Activities\Activity200EtpTests.cs" />
+    <Compile Include="Data\Activities\Activity200EtpTests.generated.cs">
+      <DependentUpon>Activity200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Activities\Activity200StoreTests.cs" />
+    <Compile Include="Data\Activities\Activity200StoreTests.generated.cs">
+      <DependentUpon>Activity200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Activities\Activity200TestBase.cs" />
+    <Compile Include="Data\Activities\Activity200TestBase.generated.cs">
+      <DependentUpon>Activity200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Activities\Activity200ValidatorTests.cs" />
+    <Compile Include="Data\Activities\Activity200ValidatorTests.generated.cs">
+      <DependentUpon>Activity200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200EtpTests.cs" />
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200EtpTests.generated.cs">
+      <DependentUpon>ActivityTemplate200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200StoreTests.cs" />
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200StoreTests.generated.cs">
+      <DependentUpon>ActivityTemplate200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200TestBase.cs" />
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200TestBase.generated.cs">
+      <DependentUpon>ActivityTemplate200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200ValidatorTests.cs" />
+    <Compile Include="Data\ActivityTemplates\ActivityTemplate200ValidatorTests.generated.cs">
+      <DependentUpon>ActivityTemplate200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment141DataAdapterAddTests.cs" />
+    <Compile Include="Data\Attachments\Attachment141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Attachments\Attachment141DataAdapterGetTests.cs" />
+    <Compile Include="Data\Attachments\Attachment141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Attachments\Attachment141EtpTests.cs" />
+    <Compile Include="Data\Attachments\Attachment141EtpTests.generated.cs">
+      <DependentUpon>Attachment141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment141StoreTests.cs" />
+    <Compile Include="Data\Attachments\Attachment141StoreTests.generated.cs">
+      <DependentUpon>Attachment141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment141TestBase.cs" />
+    <Compile Include="Data\Attachments\Attachment141TestBase.generated.cs">
+      <DependentUpon>Attachment141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment141ValidatorTests.cs" />
+    <Compile Include="Data\Attachments\Attachment141ValidatorTests.generated.cs">
+      <DependentUpon>Attachment141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment200DataAdapterAddTests.cs" />
+    <Compile Include="Data\Attachments\Attachment200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Attachments\Attachment200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Attachments\Attachment200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Attachments\Attachment200EtpTests.cs" />
+    <Compile Include="Data\Attachments\Attachment200EtpTests.generated.cs">
+      <DependentUpon>Attachment200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment200StoreTests.cs" />
+    <Compile Include="Data\Attachments\Attachment200StoreTests.generated.cs">
+      <DependentUpon>Attachment200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment200TestBase.cs" />
+    <Compile Include="Data\Attachments\Attachment200TestBase.generated.cs">
+      <DependentUpon>Attachment200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Attachments\Attachment200ValidatorTests.cs" />
+    <Compile Include="Data\Attachments\Attachment200ValidatorTests.generated.cs">
+      <DependentUpon>Attachment200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun131EtpTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun131EtpTests.generated.cs">
+      <DependentUpon>BhaRun131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun131StoreTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun131StoreTests.generated.cs">
+      <DependentUpon>BhaRun131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun131TestBase.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun131TestBase.generated.cs">
+      <DependentUpon>BhaRun131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun131ValidatorTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun131ValidatorTests.generated.cs">
+      <DependentUpon>BhaRun131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun141EtpTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun141EtpTests.generated.cs">
+      <DependentUpon>BhaRun141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun141StoreTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun141StoreTests.generated.cs">
+      <DependentUpon>BhaRun141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun141TestBase.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun141TestBase.generated.cs">
+      <DependentUpon>BhaRun141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun141ValidatorTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun141ValidatorTests.generated.cs">
+      <DependentUpon>BhaRun141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun200EtpTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun200EtpTests.generated.cs">
+      <DependentUpon>BhaRun200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun200StoreTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun200StoreTests.generated.cs">
+      <DependentUpon>BhaRun200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun200TestBase.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun200TestBase.generated.cs">
+      <DependentUpon>BhaRun200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BhaRuns\BhaRun200ValidatorTests.cs" />
+    <Compile Include="Data\BhaRuns\BhaRun200ValidatorTests.generated.cs">
+      <DependentUpon>BhaRun200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CascadedDelete\CascadedDelete141Tests.cs" />
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200EtpTests.cs" />
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200EtpTests.generated.cs">
+      <DependentUpon>CementJobEvaluation200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200StoreTests.cs" />
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200StoreTests.generated.cs">
+      <DependentUpon>CementJobEvaluation200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200TestBase.cs" />
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200TestBase.generated.cs">
+      <DependentUpon>CementJobEvaluation200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200ValidatorTests.cs" />
+    <Compile Include="Data\CementJobEvaluations\CementJobEvaluation200ValidatorTests.generated.cs">
+      <DependentUpon>CementJobEvaluation200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob131EtpTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob131EtpTests.generated.cs">
+      <DependentUpon>CementJob131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob131StoreTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob131StoreTests.generated.cs">
+      <DependentUpon>CementJob131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob131TestBase.cs" />
+    <Compile Include="Data\CementJobs\CementJob131TestBase.generated.cs">
+      <DependentUpon>CementJob131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob131ValidatorTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob131ValidatorTests.generated.cs">
+      <DependentUpon>CementJob131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob141EtpTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob141EtpTests.generated.cs">
+      <DependentUpon>CementJob141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob141StoreTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob141StoreTests.generated.cs">
+      <DependentUpon>CementJob141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob141TestBase.cs" />
+    <Compile Include="Data\CementJobs\CementJob141TestBase.generated.cs">
+      <DependentUpon>CementJob141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob141ValidatorTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob141ValidatorTests.generated.cs">
+      <DependentUpon>CementJob141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob200EtpTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob200EtpTests.generated.cs">
+      <DependentUpon>CementJob200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob200StoreTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob200StoreTests.generated.cs">
+      <DependentUpon>CementJob200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob200TestBase.cs" />
+    <Compile Include="Data\CementJobs\CementJob200TestBase.generated.cs">
+      <DependentUpon>CementJob200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CementJobs\CementJob200ValidatorTests.cs" />
+    <Compile Include="Data\CementJobs\CementJob200ValidatorTests.generated.cs">
+      <DependentUpon>CementJob200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChangeLogs\ChangeLog141GetTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200EtpTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200EtpTests.generated.cs">
+      <DependentUpon>ChannelSet200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChannelSets\ChannelSet200StoreTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200StoreTests.generated.cs">
+      <DependentUpon>ChannelSet200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChannelSets\ChannelSet200TestBase.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200TestBase.generated.cs">
+      <DependentUpon>ChannelSet200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ChannelSets\ChannelSet200ValidatorTests.generated.cs">
+      <DependentUpon>ChannelSet200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Channels\Channel200DataAdapterAddTests.cs" />
+    <Compile Include="Data\Channels\Channel200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Channels\Channel200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Channels\Channel200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Channels\Channel200EtpTests.cs" />
+    <Compile Include="Data\Channels\Channel200EtpTests.generated.cs">
+      <DependentUpon>Channel200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Channels\Channel200StoreTests.cs" />
+    <Compile Include="Data\Channels\Channel200StoreTests.generated.cs">
+      <DependentUpon>Channel200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Channels\Channel200TestBase.cs" />
+    <Compile Include="Data\Channels\Channel200TestBase.generated.cs">
+      <DependentUpon>Channel200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Channels\Channel200ValidatorTests.cs" />
+    <Compile Include="Data\Channels\Channel200ValidatorTests.generated.cs">
+      <DependentUpon>Channel200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Channels\ChannelDataChunkAdapterTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200DataAdapterAddTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200ValidatorTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\ChannelSets\ChannelSet200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Channels\ChannelDataExtensionsTests.cs" />
+    <Compile Include="Data\ConvCores\ConvCore131EtpTests.cs" />
+    <Compile Include="Data\ConvCores\ConvCore131EtpTests.generated.cs">
+      <DependentUpon>ConvCore131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConvCores\ConvCore131StoreTests.cs" />
+    <Compile Include="Data\ConvCores\ConvCore131StoreTests.generated.cs">
+      <DependentUpon>ConvCore131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConvCores\ConvCore131TestBase.cs" />
+    <Compile Include="Data\ConvCores\ConvCore131TestBase.generated.cs">
+      <DependentUpon>ConvCore131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConvCores\ConvCore131ValidatorTests.cs" />
+    <Compile Include="Data\ConvCores\ConvCore131ValidatorTests.generated.cs">
+      <DependentUpon>ConvCore131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConvCores\ConvCore141EtpTests.cs" />
+    <Compile Include="Data\ConvCores\ConvCore141EtpTests.generated.cs">
+      <DependentUpon>ConvCore141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConvCores\ConvCore141StoreTests.cs" />
+    <Compile Include="Data\ConvCores\ConvCore141StoreTests.generated.cs">
+      <DependentUpon>ConvCore141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConvCores\ConvCore141TestBase.cs" />
+    <Compile Include="Data\ConvCores\ConvCore141TestBase.generated.cs">
+      <DependentUpon>ConvCore141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ConvCores\ConvCore141ValidatorTests.cs" />
+    <Compile Include="Data\ConvCores\ConvCore141ValidatorTests.generated.cs">
+      <DependentUpon>ConvCore141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200EtpTests.cs" />
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200EtpTests.generated.cs">
+      <DependentUpon>DataAssuranceRecord200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200StoreTests.cs" />
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200StoreTests.generated.cs">
+      <DependentUpon>DataAssuranceRecord200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200TestBase.cs" />
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200TestBase.generated.cs">
+      <DependentUpon>DataAssuranceRecord200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200ValidatorTests.cs" />
+    <Compile Include="Data\DataAssuranceRecords\DataAssuranceRecord200ValidatorTests.generated.cs">
+      <DependentUpon>DataAssuranceRecord200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage141EtpTests.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage141EtpTests.generated.cs">
+      <DependentUpon>DepthRegImage141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage141StoreTests.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage141StoreTests.generated.cs">
+      <DependentUpon>DepthRegImage141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage141TestBase.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage141TestBase.generated.cs">
+      <DependentUpon>DepthRegImage141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage141ValidatorTests.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage141ValidatorTests.generated.cs">
+      <DependentUpon>DepthRegImage141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage200EtpTests.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage200EtpTests.generated.cs">
+      <DependentUpon>DepthRegImage200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage200StoreTests.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage200StoreTests.generated.cs">
+      <DependentUpon>DepthRegImage200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage200TestBase.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage200TestBase.generated.cs">
+      <DependentUpon>DepthRegImage200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DepthRegImages\DepthRegImage200ValidatorTests.cs" />
+    <Compile Include="Data\DepthRegImages\DepthRegImage200ValidatorTests.generated.cs">
+      <DependentUpon>DepthRegImage200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent141EtpTests.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent141EtpTests.generated.cs">
+      <DependentUpon>DownholeComponent141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent141StoreTests.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent141StoreTests.generated.cs">
+      <DependentUpon>DownholeComponent141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent141TestBase.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent141TestBase.generated.cs">
+      <DependentUpon>DownholeComponent141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent141ValidatorTests.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent141ValidatorTests.generated.cs">
+      <DependentUpon>DownholeComponent141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent200EtpTests.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent200EtpTests.generated.cs">
+      <DependentUpon>DownholeComponent200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent200StoreTests.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent200StoreTests.generated.cs">
+      <DependentUpon>DownholeComponent200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent200TestBase.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent200TestBase.generated.cs">
+      <DependentUpon>DownholeComponent200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DownholeComponents\DownholeComponent200ValidatorTests.cs" />
+    <Compile Include="Data\DownholeComponents\DownholeComponent200ValidatorTests.generated.cs">
+      <DependentUpon>DownholeComponent200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport141EtpTests.cs" />
+    <Compile Include="Data\DrillReports\DrillReport141EtpTests.generated.cs">
+      <DependentUpon>DrillReport141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport141StoreTests.cs" />
+    <Compile Include="Data\DrillReports\DrillReport141StoreTests.generated.cs">
+      <DependentUpon>DrillReport141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport141TestBase.cs" />
+    <Compile Include="Data\DrillReports\DrillReport141TestBase.generated.cs">
+      <DependentUpon>DrillReport141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport141ValidatorTests.cs" />
+    <Compile Include="Data\DrillReports\DrillReport141ValidatorTests.generated.cs">
+      <DependentUpon>DrillReport141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport200EtpTests.cs" />
+    <Compile Include="Data\DrillReports\DrillReport200EtpTests.generated.cs">
+      <DependentUpon>DrillReport200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport200StoreTests.cs" />
+    <Compile Include="Data\DrillReports\DrillReport200StoreTests.generated.cs">
+      <DependentUpon>DrillReport200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport200TestBase.cs" />
+    <Compile Include="Data\DrillReports\DrillReport200TestBase.generated.cs">
+      <DependentUpon>DrillReport200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DrillReports\DrillReport200ValidatorTests.cs" />
+    <Compile Include="Data\DrillReports\DrillReport200ValidatorTests.generated.cs">
+      <DependentUpon>DrillReport200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport131EtpTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport131EtpTests.generated.cs">
+      <DependentUpon>FluidsReport131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport131StoreTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport131StoreTests.generated.cs">
+      <DependentUpon>FluidsReport131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport131TestBase.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport131TestBase.generated.cs">
+      <DependentUpon>FluidsReport131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport131ValidatorTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport131ValidatorTests.generated.cs">
+      <DependentUpon>FluidsReport131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport141EtpTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport141EtpTests.generated.cs">
+      <DependentUpon>FluidsReport141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport141StoreTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport141StoreTests.generated.cs">
+      <DependentUpon>FluidsReport141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport141TestBase.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport141TestBase.generated.cs">
+      <DependentUpon>FluidsReport141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport141ValidatorTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport141ValidatorTests.generated.cs">
+      <DependentUpon>FluidsReport141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport200EtpTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport200EtpTests.generated.cs">
+      <DependentUpon>FluidsReport200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport200StoreTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport200StoreTests.generated.cs">
+      <DependentUpon>FluidsReport200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport200TestBase.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport200TestBase.generated.cs">
+      <DependentUpon>FluidsReport200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FluidsReports\FluidsReport200ValidatorTests.cs" />
+    <Compile Include="Data\FluidsReports\FluidsReport200ValidatorTests.generated.cs">
+      <DependentUpon>FluidsReport200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker131EtpTests.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker131EtpTests.generated.cs">
+      <DependentUpon>FormationMarker131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker131StoreTests.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker131StoreTests.generated.cs">
+      <DependentUpon>FormationMarker131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker131TestBase.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker131TestBase.generated.cs">
+      <DependentUpon>FormationMarker131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker131ValidatorTests.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker131ValidatorTests.generated.cs">
+      <DependentUpon>FormationMarker131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker141EtpTests.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker141EtpTests.generated.cs">
+      <DependentUpon>FormationMarker141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker141StoreTests.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker141StoreTests.generated.cs">
+      <DependentUpon>FormationMarker141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker141TestBase.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker141TestBase.generated.cs">
+      <DependentUpon>FormationMarker141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FormationMarkers\FormationMarker141ValidatorTests.cs" />
+    <Compile Include="Data\FormationMarkers\FormationMarker141ValidatorTests.generated.cs">
+      <DependentUpon>FormationMarker141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\GrowingObjects\GrowingObject131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\GrowingObjects\GrowingObject141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Logs\Log131DataAdapterAddTests.cs" />
+    <Compile Include="Data\Logs\Log131DataAdapterGetTests.cs" />
+    <Compile Include="Data\Logs\Log131DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Logs\Log131EtpTests.cs" />
+    <Compile Include="Data\Logs\Log131EtpTests.generated.cs">
+      <DependentUpon>Log131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log131StoreTests.cs" />
+    <Compile Include="Data\Logs\Log131StoreTests.generated.cs">
+      <DependentUpon>Log131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log131TestBase.cs" />
+    <Compile Include="Data\Logs\Log131TestBase.generated.cs">
+      <DependentUpon>Log131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log131ValidatorTests.cs" />
+    <Compile Include="Data\Logs\Log131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Logs\Log131ValidatorTests.generated.cs">
+      <DependentUpon>Log131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log141DataAdapterGetTests.cs" />
+    <Compile Include="Data\Logs\Log141DataAdapterAddTests.cs" />
+    <Compile Include="Data\Logs\Log141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Logs\Log141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Logs\Log141EtpTests.cs" />
+    <Compile Include="Data\Logs\Log141EtpTests.generated.cs">
+      <DependentUpon>Log141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log141StoreTests.cs" />
+    <Compile Include="Data\Logs\Log141StoreTests.generated.cs">
+      <DependentUpon>Log141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log141TestBase.cs" />
+    <Compile Include="Data\Logs\Log141TestBase.generated.cs">
+      <DependentUpon>Log141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log141ValidatorTests.cs" />
+    <Compile Include="Data\Logs\Log141ValidatorTests.generated.cs">
+      <DependentUpon>Log141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log200DataAdapterAddTests.cs" />
+    <Compile Include="Data\Logs\Log200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Logs\Log200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Logs\Log200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Logs\Log200EtpTests.cs" />
+    <Compile Include="Data\Logs\Log200EtpTests.generated.cs">
+      <DependentUpon>Log200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log200StoreTests.cs" />
+    <Compile Include="Data\Logs\Log200StoreTests.generated.cs">
+      <DependentUpon>Log200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log200TestBase.cs" />
+    <Compile Include="Data\Logs\Log200TestBase.generated.cs">
+      <DependentUpon>Log200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Logs\Log200ValidatorTests.cs" />
+    <Compile Include="Data\Logs\Log200ValidatorTests.generated.cs">
+      <DependentUpon>Log200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message131DataAdapterAddTests.cs" />
+    <Compile Include="Data\Messages\Message131DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Messages\Message131DataAdapterGetTests.cs" />
+    <Compile Include="Data\Messages\Message131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Messages\Message131EtpTests.cs" />
+    <Compile Include="Data\Messages\Message131EtpTests.generated.cs">
+      <DependentUpon>Message131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message131StoreTests.cs" />
+    <Compile Include="Data\Messages\Message131StoreTests.generated.cs">
+      <DependentUpon>Message131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message131TestBase.cs" />
+    <Compile Include="Data\Messages\Message131TestBase.generated.cs">
+      <DependentUpon>Message131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message131ValidatorTests.cs" />
+    <Compile Include="Data\Messages\Message131ValidatorTests.generated.cs">
+      <DependentUpon>Message131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message141DataAdapterAddTests.cs" />
+    <Compile Include="Data\Messages\Message141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Messages\Message141DataAdapterGetTests.cs" />
+    <Compile Include="Data\Messages\Message141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Messages\Message141EtpTests.cs" />
+    <Compile Include="Data\Messages\Message141EtpTests.generated.cs">
+      <DependentUpon>Message141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message141StoreTests.cs" />
+    <Compile Include="Data\Messages\Message141StoreTests.generated.cs">
+      <DependentUpon>Message141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message141TestBase.cs" />
+    <Compile Include="Data\Messages\Message141TestBase.generated.cs">
+      <DependentUpon>Message141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Messages\Message141ValidatorTests.cs" />
+    <Compile Include="Data\Messages\Message141ValidatorTests.generated.cs">
+      <DependentUpon>Message141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogReports\MudLogReport200EtpTests.cs" />
+    <Compile Include="Data\MudLogReports\MudLogReport200EtpTests.generated.cs">
+      <DependentUpon>MudLogReport200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogReports\MudLogReport200StoreTests.cs" />
+    <Compile Include="Data\MudLogReports\MudLogReport200StoreTests.generated.cs">
+      <DependentUpon>MudLogReport200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogReports\MudLogReport200TestBase.cs" />
+    <Compile Include="Data\MudLogReports\MudLogReport200TestBase.generated.cs">
+      <DependentUpon>MudLogReport200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogReports\MudLogReport200ValidatorTests.cs" />
+    <Compile Include="Data\MudLogReports\MudLogReport200ValidatorTests.generated.cs">
+      <DependentUpon>MudLogReport200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog131EtpTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog131EtpTests.generated.cs">
+      <DependentUpon>MudLog131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog131StoreTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog131StoreTests.generated.cs">
+      <DependentUpon>MudLog131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog131TestBase.cs" />
+    <Compile Include="Data\MudLogs\MudLog131TestBase.generated.cs">
+      <DependentUpon>MudLog131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog131ValidatorTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog131ValidatorTests.generated.cs">
+      <DependentUpon>MudLog131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog141DataAdapterAddTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog141DataAdapterGetTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog141EtpTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog141EtpTests.generated.cs">
+      <DependentUpon>MudLog141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog141StoreTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog141StoreTests.generated.cs">
+      <DependentUpon>MudLog141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog141TestBase.cs" />
+    <Compile Include="Data\MudLogs\MudLog141TestBase.generated.cs">
+      <DependentUpon>MudLog141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MudLogs\MudLog141ValidatorTests.cs" />
+    <Compile Include="Data\MudLogs\MudLog141ValidatorTests.generated.cs">
+      <DependentUpon>MudLog141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MultiObject131TestBase.cs" />
+    <Compile Include="Data\MultiObject141TestBase.cs" />
+    <Compile Include="Data\OpsReports\OpsReport131EtpTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport131EtpTests.generated.cs">
+      <DependentUpon>OpsReport131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport131StoreTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport131StoreTests.generated.cs">
+      <DependentUpon>OpsReport131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport131TestBase.cs" />
+    <Compile Include="Data\OpsReports\OpsReport131TestBase.generated.cs">
+      <DependentUpon>OpsReport131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport131ValidatorTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport131ValidatorTests.generated.cs">
+      <DependentUpon>OpsReport131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport141EtpTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport141EtpTests.generated.cs">
+      <DependentUpon>OpsReport141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport141StoreTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport141StoreTests.generated.cs">
+      <DependentUpon>OpsReport141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport141TestBase.cs" />
+    <Compile Include="Data\OpsReports\OpsReport141TestBase.generated.cs">
+      <DependentUpon>OpsReport141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport141ValidatorTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport141ValidatorTests.generated.cs">
+      <DependentUpon>OpsReport141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport200EtpTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport200EtpTests.generated.cs">
+      <DependentUpon>OpsReport200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport200StoreTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport200StoreTests.generated.cs">
+      <DependentUpon>OpsReport200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport200TestBase.cs" />
+    <Compile Include="Data\OpsReports\OpsReport200TestBase.generated.cs">
+      <DependentUpon>OpsReport200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\OpsReports\OpsReport200ValidatorTests.cs" />
+    <Compile Include="Data\OpsReports\OpsReport200ValidatorTests.generated.cs">
+      <DependentUpon>OpsReport200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig131DataAdapterAddTests.cs" />
+    <Compile Include="Data\Rigs\Rig131DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Rigs\Rig131DataAdapterGetTests.cs" />
+    <Compile Include="Data\Rigs\Rig131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Rigs\Rig131EtpTests.cs" />
+    <Compile Include="Data\Rigs\Rig131EtpTests.generated.cs">
+      <DependentUpon>Rig131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig131StoreTests.cs" />
+    <Compile Include="Data\Rigs\Rig131StoreTests.generated.cs">
+      <DependentUpon>Rig131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig131TestBase.cs" />
+    <Compile Include="Data\Rigs\Rig131TestBase.generated.cs">
+      <DependentUpon>Rig131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig131ValidatorTests.cs" />
+    <Compile Include="Data\Rigs\Rig131ValidatorTests.generated.cs">
+      <DependentUpon>Rig131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig141DataAdapterAddTests.cs" />
+    <Compile Include="Data\Rigs\Rig141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Rigs\Rig141DataAdapterGetTests.cs" />
+    <Compile Include="Data\Rigs\Rig141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Rigs\Rig141EtpTests.cs" />
+    <Compile Include="Data\Rigs\Rig141EtpTests.generated.cs">
+      <DependentUpon>Rig141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig141StoreTests.cs" />
+    <Compile Include="Data\Rigs\Rig141StoreTests.generated.cs">
+      <DependentUpon>Rig141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig141TestBase.cs" />
+    <Compile Include="Data\Rigs\Rig141TestBase.generated.cs">
+      <DependentUpon>Rig141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig141ValidatorTests.cs" />
+    <Compile Include="Data\Rigs\Rig141ValidatorTests.generated.cs">
+      <DependentUpon>Rig141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig200DataAdapterAddTests.cs" />
+    <Compile Include="Data\Rigs\Rig200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Rigs\Rig200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Rigs\Rig200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Rigs\Rig200EtpTests.cs" />
+    <Compile Include="Data\Rigs\Rig200EtpTests.generated.cs">
+      <DependentUpon>Rig200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig200StoreTests.cs" />
+    <Compile Include="Data\Rigs\Rig200StoreTests.generated.cs">
+      <DependentUpon>Rig200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig200TestBase.cs" />
+    <Compile Include="Data\Rigs\Rig200TestBase.generated.cs">
+      <DependentUpon>Rig200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Rigs\Rig200ValidatorTests.cs" />
+    <Compile Include="Data\Rigs\Rig200ValidatorTests.generated.cs">
+      <DependentUpon>Rig200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RigUtilizations\RigUtilization200DataAdapterAddTests.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200DataAdapterGetTests.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200EtpTests.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200EtpTests.generated.cs">
+      <DependentUpon>RigUtilization200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RigUtilizations\RigUtilization200StoreTests.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200StoreTests.generated.cs">
+      <DependentUpon>RigUtilization200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RigUtilizations\RigUtilization200TestBase.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200TestBase.generated.cs">
+      <DependentUpon>RigUtilization200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RigUtilizations\RigUtilization200ValidatorTests.cs" />
+    <Compile Include="Data\RigUtilizations\RigUtilization200ValidatorTests.generated.cs">
+      <DependentUpon>RigUtilization200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk131EtpTests.cs" />
+    <Compile Include="Data\Risks\Risk131EtpTests.generated.cs">
+      <DependentUpon>Risk131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk131StoreTests.cs" />
+    <Compile Include="Data\Risks\Risk131StoreTests.generated.cs">
+      <DependentUpon>Risk131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk131TestBase.cs" />
+    <Compile Include="Data\Risks\Risk131TestBase.generated.cs">
+      <DependentUpon>Risk131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk131ValidatorTests.cs" />
+    <Compile Include="Data\Risks\Risk131ValidatorTests.generated.cs">
+      <DependentUpon>Risk131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk141EtpTests.cs" />
+    <Compile Include="Data\Risks\Risk141EtpTests.generated.cs">
+      <DependentUpon>Risk141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk141StoreTests.cs" />
+    <Compile Include="Data\Risks\Risk141StoreTests.generated.cs">
+      <DependentUpon>Risk141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk141TestBase.cs" />
+    <Compile Include="Data\Risks\Risk141TestBase.generated.cs">
+      <DependentUpon>Risk141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk141ValidatorTests.cs" />
+    <Compile Include="Data\Risks\Risk141ValidatorTests.generated.cs">
+      <DependentUpon>Risk141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk200EtpTests.cs" />
+    <Compile Include="Data\Risks\Risk200EtpTests.generated.cs">
+      <DependentUpon>Risk200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk200StoreTests.cs" />
+    <Compile Include="Data\Risks\Risk200StoreTests.generated.cs">
+      <DependentUpon>Risk200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk200TestBase.cs" />
+    <Compile Include="Data\Risks\Risk200TestBase.generated.cs">
+      <DependentUpon>Risk200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Risks\Risk200ValidatorTests.cs" />
+    <Compile Include="Data\Risks\Risk200ValidatorTests.generated.cs">
+      <DependentUpon>Risk200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore131EtpTests.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore131EtpTests.generated.cs">
+      <DependentUpon>SidewallCore131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore131StoreTests.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore131StoreTests.generated.cs">
+      <DependentUpon>SidewallCore131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore131TestBase.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore131TestBase.generated.cs">
+      <DependentUpon>SidewallCore131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore131ValidatorTests.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore131ValidatorTests.generated.cs">
+      <DependentUpon>SidewallCore131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore141EtpTests.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore141EtpTests.generated.cs">
+      <DependentUpon>SidewallCore141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore141StoreTests.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore141StoreTests.generated.cs">
+      <DependentUpon>SidewallCore141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore141TestBase.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore141TestBase.generated.cs">
+      <DependentUpon>SidewallCore141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SidewallCores\SidewallCore141ValidatorTests.cs" />
+    <Compile Include="Data\SidewallCores\SidewallCore141ValidatorTests.generated.cs">
+      <DependentUpon>SidewallCore141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobStages\StimJobStage200EtpTests.cs" />
+    <Compile Include="Data\StimJobStages\StimJobStage200EtpTests.generated.cs">
+      <DependentUpon>StimJobStage200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobStages\StimJobStage200StoreTests.cs" />
+    <Compile Include="Data\StimJobStages\StimJobStage200StoreTests.generated.cs">
+      <DependentUpon>StimJobStage200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobStages\StimJobStage200TestBase.cs" />
+    <Compile Include="Data\StimJobStages\StimJobStage200TestBase.generated.cs">
+      <DependentUpon>StimJobStage200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobStages\StimJobStage200ValidatorTests.cs" />
+    <Compile Include="Data\StimJobStages\StimJobStage200ValidatorTests.generated.cs">
+      <DependentUpon>StimJobStage200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob141EtpTests.cs" />
+    <Compile Include="Data\StimJobs\StimJob141EtpTests.generated.cs">
+      <DependentUpon>StimJob141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob141StoreTests.cs" />
+    <Compile Include="Data\StimJobs\StimJob141StoreTests.generated.cs">
+      <DependentUpon>StimJob141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob141TestBase.cs" />
+    <Compile Include="Data\StimJobs\StimJob141TestBase.generated.cs">
+      <DependentUpon>StimJob141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob141ValidatorTests.cs" />
+    <Compile Include="Data\StimJobs\StimJob141ValidatorTests.generated.cs">
+      <DependentUpon>StimJob141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob200EtpTests.cs" />
+    <Compile Include="Data\StimJobs\StimJob200EtpTests.generated.cs">
+      <DependentUpon>StimJob200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob200StoreTests.cs" />
+    <Compile Include="Data\StimJobs\StimJob200StoreTests.generated.cs">
+      <DependentUpon>StimJob200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob200TestBase.cs" />
+    <Compile Include="Data\StimJobs\StimJob200TestBase.generated.cs">
+      <DependentUpon>StimJob200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StimJobs\StimJob200ValidatorTests.cs" />
+    <Compile Include="Data\StimJobs\StimJob200ValidatorTests.generated.cs">
+      <DependentUpon>StimJob200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131EtpTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131EtpTests.generated.cs">
+      <DependentUpon>SurveyProgram131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131StoreTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131StoreTests.generated.cs">
+      <DependentUpon>SurveyProgram131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131TestBase.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131TestBase.generated.cs">
+      <DependentUpon>SurveyProgram131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131ValidatorTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram131ValidatorTests.generated.cs">
+      <DependentUpon>SurveyProgram131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141EtpTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141EtpTests.generated.cs">
+      <DependentUpon>SurveyProgram141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141StoreTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141StoreTests.generated.cs">
+      <DependentUpon>SurveyProgram141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141TestBase.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141TestBase.generated.cs">
+      <DependentUpon>SurveyProgram141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141ValidatorTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram141ValidatorTests.generated.cs">
+      <DependentUpon>SurveyProgram141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200EtpTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200EtpTests.generated.cs">
+      <DependentUpon>SurveyProgram200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200StoreTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200StoreTests.generated.cs">
+      <DependentUpon>SurveyProgram200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200TestBase.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200TestBase.generated.cs">
+      <DependentUpon>SurveyProgram200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200ValidatorTests.cs" />
+    <Compile Include="Data\SurveyPrograms\SurveyProgram200ValidatorTests.generated.cs">
+      <DependentUpon>SurveyProgram200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target131EtpTests.cs" />
+    <Compile Include="Data\Targets\Target131EtpTests.generated.cs">
+      <DependentUpon>Target131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target131StoreTests.cs" />
+    <Compile Include="Data\Targets\Target131StoreTests.generated.cs">
+      <DependentUpon>Target131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target131TestBase.cs" />
+    <Compile Include="Data\Targets\Target131TestBase.generated.cs">
+      <DependentUpon>Target131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target131ValidatorTests.cs" />
+    <Compile Include="Data\Targets\Target131ValidatorTests.generated.cs">
+      <DependentUpon>Target131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target141EtpTests.cs" />
+    <Compile Include="Data\Targets\Target141EtpTests.generated.cs">
+      <DependentUpon>Target141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target141StoreTests.cs" />
+    <Compile Include="Data\Targets\Target141StoreTests.generated.cs">
+      <DependentUpon>Target141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target141TestBase.cs" />
+    <Compile Include="Data\Targets\Target141TestBase.generated.cs">
+      <DependentUpon>Target141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Targets\Target141ValidatorTests.cs" />
+    <Compile Include="Data\Targets\Target141ValidatorTests.generated.cs">
+      <DependentUpon>Target141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory131DataAdapterAddTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131DataAdapterGetTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131EtpTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131EtpTests.generated.cs">
+      <DependentUpon>Trajectory131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory131StoreTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131StoreTests.generated.cs">
+      <DependentUpon>Trajectory131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory131TestBase.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131TestBase.generated.cs">
+      <DependentUpon>Trajectory131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory131ValidatorTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory131ValidatorTests.generated.cs">
+      <DependentUpon>Trajectory131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory141DataAdapterAddTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141DataAdapterGetTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141EtpTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141EtpTests.generated.cs">
+      <DependentUpon>Trajectory141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory141StoreTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141StoreTests.generated.cs">
+      <DependentUpon>Trajectory141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory141TestBase.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141TestBase.generated.cs">
+      <DependentUpon>Trajectory141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory141ValidatorTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory141ValidatorTests.generated.cs">
+      <DependentUpon>Trajectory141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory200DataAdapterAddTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200EtpTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200EtpTests.generated.cs">
+      <DependentUpon>Trajectory200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory200StoreTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200StoreTests.generated.cs">
+      <DependentUpon>Trajectory200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory200TestBase.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200TestBase.generated.cs">
+      <DependentUpon>Trajectory200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Trajectories\Trajectory200ValidatorTests.cs" />
+    <Compile Include="Data\Trajectories\Trajectory200ValidatorTests.generated.cs">
+      <DependentUpon>Trajectory200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular131EtpTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular131EtpTests.generated.cs">
+      <DependentUpon>Tubular131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular131StoreTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular131StoreTests.generated.cs">
+      <DependentUpon>Tubular131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular131TestBase.cs" />
+    <Compile Include="Data\Tubulars\Tubular131TestBase.generated.cs">
+      <DependentUpon>Tubular131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular131ValidatorTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular131ValidatorTests.generated.cs">
+      <DependentUpon>Tubular131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular141EtpTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular141EtpTests.generated.cs">
+      <DependentUpon>Tubular141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular141StoreTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular141StoreTests.generated.cs">
+      <DependentUpon>Tubular141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular141TestBase.cs" />
+    <Compile Include="Data\Tubulars\Tubular141TestBase.generated.cs">
+      <DependentUpon>Tubular141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular141ValidatorTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular141ValidatorTests.generated.cs">
+      <DependentUpon>Tubular141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular200EtpTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular200EtpTests.generated.cs">
+      <DependentUpon>Tubular200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular200StoreTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular200StoreTests.generated.cs">
+      <DependentUpon>Tubular200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular200TestBase.cs" />
+    <Compile Include="Data\Tubulars\Tubular200TestBase.generated.cs">
+      <DependentUpon>Tubular200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Tubulars\Tubular200ValidatorTests.cs" />
+    <Compile Include="Data\Tubulars\Tubular200ValidatorTests.generated.cs">
+      <DependentUpon>Tubular200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry131DataAdapterAddTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131DataAdapterGetTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131EtpTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131EtpTests.generated.cs">
+      <DependentUpon>WbGeometry131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry131StoreTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131StoreTests.generated.cs">
+      <DependentUpon>WbGeometry131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry131TestBase.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131TestBase.generated.cs">
+      <DependentUpon>WbGeometry131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry131ValidatorTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry131ValidatorTests.generated.cs">
+      <DependentUpon>WbGeometry131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry141DataAdapterAddTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141DataAdapterGetTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141EtpTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141EtpTests.generated.cs">
+      <DependentUpon>WbGeometry141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry141StoreTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141StoreTests.generated.cs">
+      <DependentUpon>WbGeometry141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry141TestBase.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141TestBase.generated.cs">
+      <DependentUpon>WbGeometry141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WbGeometries\WbGeometry141ValidatorTests.cs" />
+    <Compile Include="Data\WbGeometries\WbGeometry141ValidatorTests.generated.cs">
+      <DependentUpon>WbGeometry141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141EtpTests.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141EtpTests.generated.cs">
+      <DependentUpon>WellboreCompletion141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141StoreTests.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141StoreTests.generated.cs">
+      <DependentUpon>WellboreCompletion141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141TestBase.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141TestBase.generated.cs">
+      <DependentUpon>WellboreCompletion141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141ValidatorTests.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion141ValidatorTests.generated.cs">
+      <DependentUpon>WellboreCompletion141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200EtpTests.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200EtpTests.generated.cs">
+      <DependentUpon>WellboreCompletion200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200StoreTests.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200StoreTests.generated.cs">
+      <DependentUpon>WellboreCompletion200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200TestBase.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200TestBase.generated.cs">
+      <DependentUpon>WellboreCompletion200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200ValidatorTests.cs" />
+    <Compile Include="Data\WellboreCompletions\WellboreCompletion200ValidatorTests.generated.cs">
+      <DependentUpon>WellboreCompletion200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200EtpTests.cs" />
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200EtpTests.generated.cs">
+      <DependentUpon>WellboreGeology200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200StoreTests.cs" />
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200StoreTests.generated.cs">
+      <DependentUpon>WellboreGeology200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200TestBase.cs" />
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200TestBase.generated.cs">
+      <DependentUpon>WellboreGeology200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200ValidatorTests.cs" />
+    <Compile Include="Data\WellboreGeologies\WellboreGeology200ValidatorTests.generated.cs">
+      <DependentUpon>WellboreGeology200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200EtpTests.cs" />
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200EtpTests.generated.cs">
+      <DependentUpon>WellboreGeometry200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200StoreTests.cs" />
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200StoreTests.generated.cs">
+      <DependentUpon>WellboreGeometry200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200TestBase.cs" />
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200TestBase.generated.cs">
+      <DependentUpon>WellboreGeometry200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200ValidatorTests.cs" />
+    <Compile Include="Data\WellboreGeometries\WellboreGeometry200ValidatorTests.generated.cs">
+      <DependentUpon>WellboreGeometry200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200EtpTests.cs" />
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200EtpTests.generated.cs">
+      <DependentUpon>WellboreMarkerSet200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200StoreTests.cs" />
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200StoreTests.generated.cs">
+      <DependentUpon>WellboreMarkerSet200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200TestBase.cs" />
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200TestBase.generated.cs">
+      <DependentUpon>WellboreMarkerSet200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200ValidatorTests.cs" />
+    <Compile Include="Data\WellboreMarkerSets\WellboreMarkerSet200ValidatorTests.generated.cs">
+      <DependentUpon>WellboreMarkerSet200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200EtpTests.cs" />
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200EtpTests.generated.cs">
+      <DependentUpon>WellboreMarker200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200StoreTests.cs" />
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200StoreTests.generated.cs">
+      <DependentUpon>WellboreMarker200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200TestBase.cs" />
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200TestBase.generated.cs">
+      <DependentUpon>WellboreMarker200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200ValidatorTests.cs" />
+    <Compile Include="Data\WellboreMarkers\WellboreMarker200ValidatorTests.generated.cs">
+      <DependentUpon>WellboreMarker200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore131DataAdapterAddTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131DataAdapterGetTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131EtpTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131EtpTests.generated.cs">
+      <DependentUpon>Wellbore131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore131StoreTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131StoreTests.generated.cs">
+      <DependentUpon>Wellbore131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore131TestBase.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131TestBase.generated.cs">
+      <DependentUpon>Wellbore131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore131ValidatorTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore131ValidatorTests.generated.cs">
+      <DependentUpon>Wellbore131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore141DataAdapterGetTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141DataAdapterAddTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141EtpTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141EtpTests.generated.cs">
+      <DependentUpon>Wellbore141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore141StoreTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141StoreTests.generated.cs">
+      <DependentUpon>Wellbore141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore141TestBase.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141TestBase.generated.cs">
+      <DependentUpon>Wellbore141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore141ValidatorTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore141ValidatorTests.generated.cs">
+      <DependentUpon>Wellbore141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore200DataAdapterAddTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200EtpTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200EtpTests.generated.cs">
+      <DependentUpon>Wellbore200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore200StoreTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200StoreTests.generated.cs">
+      <DependentUpon>Wellbore200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore200TestBase.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200TestBase.generated.cs">
+      <DependentUpon>Wellbore200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wellbores\Wellbore200ValidatorTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Wellbores\Wellbore200ValidatorTests.generated.cs">
+      <DependentUpon>Wellbore200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141EtpTests.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141EtpTests.generated.cs">
+      <DependentUpon>WellCMLedger141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141StoreTests.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141StoreTests.generated.cs">
+      <DependentUpon>WellCMLedger141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141TestBase.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141TestBase.generated.cs">
+      <DependentUpon>WellCMLedger141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141ValidatorTests.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger141ValidatorTests.generated.cs">
+      <DependentUpon>WellCMLedger141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200EtpTests.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200EtpTests.generated.cs">
+      <DependentUpon>WellCMLedger200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200StoreTests.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200StoreTests.generated.cs">
+      <DependentUpon>WellCMLedger200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200TestBase.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200TestBase.generated.cs">
+      <DependentUpon>WellCMLedger200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200ValidatorTests.cs" />
+    <Compile Include="Data\WellCMLedgers\WellCMLedger200ValidatorTests.generated.cs">
+      <DependentUpon>WellCMLedger200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion141EtpTests.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion141EtpTests.generated.cs">
+      <DependentUpon>WellCompletion141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion141StoreTests.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion141StoreTests.generated.cs">
+      <DependentUpon>WellCompletion141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion141TestBase.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion141TestBase.generated.cs">
+      <DependentUpon>WellCompletion141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion141ValidatorTests.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion141ValidatorTests.generated.cs">
+      <DependentUpon>WellCompletion141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion200EtpTests.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion200EtpTests.generated.cs">
+      <DependentUpon>WellCompletion200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion200StoreTests.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion200StoreTests.generated.cs">
+      <DependentUpon>WellCompletion200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion200TestBase.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion200TestBase.generated.cs">
+      <DependentUpon>WellCompletion200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellCompletions\WellCompletion200ValidatorTests.cs" />
+    <Compile Include="Data\WellCompletions\WellCompletion200ValidatorTests.generated.cs">
+      <DependentUpon>WellCompletion200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellLogs\WellLog131EtpTests.cs" />
+    <Compile Include="Data\WellLogs\WellLog131EtpTests.generated.cs">
+      <DependentUpon>WellLog131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellLogs\WellLog131StoreTests.cs" />
+    <Compile Include="Data\WellLogs\WellLog131StoreTests.generated.cs">
+      <DependentUpon>WellLog131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellLogs\WellLog131TestBase.cs" />
+    <Compile Include="Data\WellLogs\WellLog131TestBase.generated.cs">
+      <DependentUpon>WellLog131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WellLogs\WellLog131ValidatorTests.cs" />
+    <Compile Include="Data\WellLogs\WellLog131ValidatorTests.generated.cs">
+      <DependentUpon>WellLog131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well131DataAdapterAddTests.cs" />
+    <Compile Include="Data\Wells\Well131DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Wells\Well131DataAdapterGetTests.cs" />
+    <Compile Include="Data\Wells\Well131DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Wells\Well131EtpTests.cs" />
+    <Compile Include="Data\Wells\Well131EtpTests.generated.cs">
+      <DependentUpon>Well131EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well131StoreTests.cs" />
+    <Compile Include="Data\Wells\Well131StoreTests.generated.cs">
+      <DependentUpon>Well131StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well131TestBase.cs" />
+    <Compile Include="Data\Wells\Well131TestBase.generated.cs">
+      <DependentUpon>Well131TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well131ValidatorTests.cs" />
+    <Compile Include="Data\Wells\Well131ValidatorTests.generated.cs">
+      <DependentUpon>Well131ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well141DataAdapterAddTests.cs" />
+    <Compile Include="Data\Wells\Well141DataAdapterGetTests.cs" />
+    <Compile Include="Data\Wells\Well141DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Wells\Well141DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Wells\Well141EtpTests.cs" />
+    <Compile Include="Data\Wells\Well141EtpTests.generated.cs">
+      <DependentUpon>Well141EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well141StoreTests.cs" />
+    <Compile Include="Data\Wells\Well141StoreTests.generated.cs">
+      <DependentUpon>Well141StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well141TestBase.cs" />
+    <Compile Include="Data\Wells\Well141TestBase.generated.cs">
+      <DependentUpon>Well141TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well141ValidatorTests.cs" />
+    <Compile Include="Data\Wells\Well141ValidatorTests.generated.cs">
+      <DependentUpon>Well141ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well200DataAdapterAddTests.cs" />
+    <Compile Include="Data\Wells\Well200DataAdapterDeleteTests.cs" />
+    <Compile Include="Data\Wells\Well200DataAdapterGetTests.cs" />
+    <Compile Include="Data\Wells\Well200EtpTests.cs" />
+    <Compile Include="Data\Wells\Well200EtpTests.generated.cs">
+      <DependentUpon>Well200EtpTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well200StoreTests.cs" />
+    <Compile Include="Data\Wells\Well200StoreTests.generated.cs">
+      <DependentUpon>Well200StoreTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well200TestBase.cs" />
+    <Compile Include="Data\Wells\Well200TestBase.generated.cs">
+      <DependentUpon>Well200TestBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Wells\Well200ValidatorTests.cs" />
+    <Compile Include="Data\Wells\Well200DataAdapterUpdateTests.cs" />
+    <Compile Include="Data\Wells\Well200ValidatorTests.generated.cs">
+      <DependentUpon>Well200ValidatorTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\WitsmlExtensionsTests.cs" />
+    <Compile Include="Data\WitsmlQueryTemplateTests.cs" />
+    <Compile Include="Data\WitsmlQueryParserTests.cs" />
+    <Compile Include="IntegrationTestBase.cs" />
+    <Compile Include="IntegrationTestFixtureBase.cs" />
+    <Compile Include="ITestContextProvider.cs" />
+    <Compile Include="Linq\Witsml131ContextTests.cs" />
+    <Compile Include="Linq\Witsml141ContextTests.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Providers\ChannelStreaming\ChannelStreamingProtocolTests.cs" />
+    <Compile Include="SampleDataTests.cs" />
+    <Compile Include="DevKit131Aspect.cs" />
+    <Compile Include="DevKit141Aspect.cs" />
+    <Compile Include="DevKit200Aspect.cs" />
+    <Compile Include="DevKitAspect.cs" />
+    <Compile Include="TestExtensions.cs" />
+    <Compile Include="TestSettings.cs" />
+    <Compile Include="WitsmlStore131ProxyTests.cs" />
+    <Compile Include="WitsmlStore141ProxyTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WitsmlStore141Tests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ext\devkit-c\source\DevKitGenerator\DataAccess.PRODML\DataAccess.PRODML.csproj">
+      <Project>{57ea0f9f-5e9a-4788-9738-be3381343e1a}</Project>
+      <Name>DataAccess.PRODML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ext\devkit-c\source\DevKitGenerator\DataAccess.RESQML\DataAccess.RESQML.csproj">
+      <Project>{6d7cdb8e-b137-4ad0-8a8d-7eeaafb69960}</Project>
+      <Name>DataAccess.RESQML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ext\devkit-c\source\DevKitGenerator\DataAccess.WITSML\DataAccess.WITSML.csproj">
+      <Project>{8184e6c9-3746-40e5-8b81-6f24785c3739}</Project>
+      <Name>DataAccess.WITSML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ext\devkit-c\source\DevKitGenerator\DataAccess\DataAccess.csproj">
+      <Project>{3f3d2683-6036-4c06-911d-2db5c1682d91}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ext\etp-devkit\ext\etp.net\src\ETP.Messages\ETP.Messages.csproj">
+      <Project>{1a788a14-70d7-4b2b-96a3-086c86d0c925}</Project>
+      <Name>ETP.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ext\etp-devkit\src\DevKit\DevKit.csproj">
+      <Project>{30de888b-a6b7-4528-ad89-324a7f9b0f4c}</Project>
+      <Name>DevKit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework\Framework.csproj">
+      <Project>{fae228aa-4917-4b02-b239-0a24df883898}</Project>
+      <Name>Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Store.Jobs\Store.Jobs.csproj">
+      <Project>{006F1A29-952B-4264-8E91-0D445F74B183}</Project>
+      <Name>Store.Jobs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Store.Core\Store.Core.csproj">
+      <Project>{93faae2f-13aa-46df-a94b-36155b51ebfa}</Project>
+      <Name>Store.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{0ef1d73f-e7a0-40b0-803b-7ce4b6b27112}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Store.MongoDb.Common\Store.MongoDb.Common.csproj">
+      <Project>{c1fe065b-5750-4d15-84d8-77df756c52d8}</Project>
+      <Name>Store.MongoDb.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Store.MongoDb\Store.MongoDb.csproj">
+      <Project>{692d27d9-2f4c-44a6-8d71-8b291e0dc1a3}</Project>
+      <Name>Store.MongoDb</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestData\49025109020000_13346_Slicing_Time_Log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\490251091700_IntervalRangeInclusion_MudLog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="TestData\EnergisticsWell2016-B_Well.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\EnergisticsWellbore2016-B_Wellbore.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Full131Well.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Full141Well.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\L-3610902-MD_log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\L-3610902-Time-Dec_log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\L-3610903-MD-Dec_log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\L-3610903-Time_log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-log131-add.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-log131-update1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-log131-update2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-log141-add.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-log141-update1.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-log141-update2.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-well131-add.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-well141-add.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-wellbore131-add.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-chunk-file-merge-wellbore141-add.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-exceed-max-doc-size-log-0001.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-exceed-max-doc-size-well-0001.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Test-exceed-max-doc-size-wellbore-0001.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="TestData\LargeLog.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\LargeLog_append.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Generated_Time_Log_Log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Generated_Time_Log_Well.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\Generated_Time_Log_Wellbore.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>PDS.WITSMLstudio.Store.IntegrationTest</CustomToolNamespace>
+    </None>
+    <None Include="Witsml.Server.IntegrationTest.nuspec" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TestData\49025109020000_13345_Log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\490251090200_Well.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\490251090200_Wellbore.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\49025109170000_13344_Log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\490251091700_Well.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\490251091700_Wellbore.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\49025230310000_283712_Log.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\490252303100_Well.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\490252303100_Wellbore.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
